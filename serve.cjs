@@ -43,7 +43,7 @@ async function main() {
   });
 
   fastify.register(require('fastify-static'), {
-    root: path.join(__dirname, dir),
+    root: path.join(process.cwd(), dir),
     setHeaders(res) {
       res.setHeader(
         'Report-To',
