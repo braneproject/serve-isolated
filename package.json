@@ -1,0 +1,17 @@
+{
+  "name": "serve-isolated",
+  "version": "1.0.0",
+  "module": "commonjs",
+  "main": "serve.cjs",
+  "bin": "serve.cjs",
+  "license": "MIT",
+  "files": [
+    "serve.cjs"
+  ],
+  "dependencies": {
+    "devcert": "^1.2.0",
+    "fastify": "^3.21.6",
+    "fastify-static": "^4.2.3",
+    "mri": "^1.2.0"
+  }
+}
