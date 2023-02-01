@@ -1,6 +1,6 @@
 {
   "name": "serve-isolated",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "module": "commonjs",
   "main": "serve.cjs",
   "bin": "serve.cjs",
