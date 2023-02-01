@@ -11,7 +11,7 @@
   "dependencies": {
     "@fastify/cors": "^8.2.0",
     "@fastify/static": "^6.8.0",
-    "devcert": "^1.2.0",
+    "devcert": "^1.2.2",
     "fastify": "^4.12.0",
     "mri": "^1.2.0"
   }
