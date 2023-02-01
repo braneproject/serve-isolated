@@ -20,6 +20,7 @@ async function main() {
   }
 
   const ssl = arg.https && await devcert.certificateFor(hostname);
+
   const fastify = require('fastify')({
     logger: true,
     ...ssl && {
@@ -32,15 +33,7 @@ async function main() {
     },
   });
 
-  fastify.get('/___coep_report', (request, reply) => {
-    request.log.info({ report: request.body });
-    reply.code(204).send();
-  });
-
-  fastify.get('/___coop_report', (request, reply) => {
-    request.log.info({ report: request.body });
-    reply.code(204).send();
-  });
+  fastify.register(require('@fastify/cors'));
 
   fastify.register(require('fastify-static'), {
     root: path.join(process.cwd(), dir),
@@ -52,6 +45,16 @@ async function main() {
       res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp; report-to="coep_report"');
       res.setHeader('Cross-Origin-Opener-Policy', 'same-origin; report-to="coop_report"');
     },
+  });
+
+  fastify.get('/___coep_report', (request, reply) => {
+    request.log.info({ report: request.body });
+    reply.code(204).send();
+  });
+
+  fastify.get('/___coop_report', (request, reply) => {
+    request.log.info({ report: request.body });
+    reply.code(204).send();
   });
 
   fastify.listen(port, hostname);
