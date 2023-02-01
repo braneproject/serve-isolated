@@ -35,7 +35,7 @@ async function main() {
 
   fastify.register(require('@fastify/cors'));
 
-  fastify.register(require('fastify-static'), {
+  fastify.register(require('@fastify/static'), {
     root: path.join(process.cwd(), dir),
     setHeaders(res) {
       res.setHeader(
