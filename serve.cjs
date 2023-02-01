@@ -44,6 +44,7 @@ async function main() {
       );
       res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp; report-to="coep_report"');
       res.setHeader('Cross-Origin-Opener-Policy', 'same-origin; report-to="coop_report"');
+      res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
     },
   });
 
